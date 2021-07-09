@@ -4,11 +4,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 
 
-public interface Repo extends JpaRepository<Machine, Long> {
+public interface Repo_II extends JpaRepository<Machine_II, Long> {
 
-    Machine findByEngine(String name);
-
-
+    Machine_II findByFire(String name);
 
 
 

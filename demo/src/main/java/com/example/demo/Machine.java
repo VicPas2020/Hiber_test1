@@ -6,7 +6,7 @@ import org.hibernate.annotations.PolymorphismType;
 import javax.persistence.Entity;
 
 @Entity
-//@Polymorphism(type = PolymorphismType.IMPLICIT)
+
 
 public class Machine extends AbstractEntity{
 
