@@ -1,8 +1,0 @@
-//package com.example.demo;
-//
-//import org.springframework.data.jpa.repository.JpaRepository;
-//
-//public interface AuthorRepo extends JpaRepository<Machine, Long> {
-//
-//    Machine aa (Long id);
-//}
