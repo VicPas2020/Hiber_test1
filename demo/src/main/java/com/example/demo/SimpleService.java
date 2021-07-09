@@ -21,9 +21,9 @@ public class SimpleService {
 //        Object aa = em.createNamedQuery("aa").getSingleResult();
 //        System.out.println(aa);
 
-
-        List  resultList = em.createNativeQuery("SELECT * FROM Machine").getResultList();
-        System.out.println(resultList.get(0)); // 6 объектов, расшифровать которые не получилось
+                                              // ЭТО JPQL запрос!!! по имени класса
+        List  resultList = em.createQuery("FROM AbstractEntity").getResultList();
+        System.out.println(resultList); // 6 объектов, расшифровать которые не получилось
 
 
     }
