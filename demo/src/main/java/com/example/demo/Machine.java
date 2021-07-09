@@ -1,8 +1,13 @@
 package com.example.demo;
 
+import org.hibernate.annotations.Polymorphism;
+import org.hibernate.annotations.PolymorphismType;
+
 import javax.persistence.Entity;
 
 @Entity
+//@Polymorphism(type = PolymorphismType.IMPLICIT)
+
 public class Machine extends AbstractEntity{
 
 //    @Id

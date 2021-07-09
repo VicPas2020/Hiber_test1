@@ -1,6 +1,9 @@
 package com.example.demo;
 
 
+import org.hibernate.annotations.Polymorphism;
+import org.hibernate.annotations.PolymorphismType;
+
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -15,7 +18,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "abstract")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-
 public abstract class AbstractEntity {
 
     @Id
