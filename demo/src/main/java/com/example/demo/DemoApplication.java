@@ -30,16 +30,18 @@ public class DemoApplication {
 
 			Machine m = new Machine(11L,"VOLGA " + i);
 			repo.save(m);
+			MachineImpl mi = new MachineImpl(1L, "implMAch " + i, i,  "ddd " + i);
+			repo.save(mi);
 
 
 			}
 
 
 			//repo.delete(repo.getById(10L));
-			Machine volga6 = repo.findByName("VOLGA 6");
+			Machine volga6 = repo.findByEngine("VOLGA 6");
 			System.out.println(volga6);
 
-			simpleService.method();
+			//simpleService.method();
 
 
 		};

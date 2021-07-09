@@ -6,7 +6,7 @@ import org.springframework.data.repository.NoRepositoryBean;
 @NoRepositoryBean
 public interface Repo extends JpaRepository<Machine, Long> {
 
-    Machine findByName(String name);
+    Machine findByEngine(String name);
 
 
 

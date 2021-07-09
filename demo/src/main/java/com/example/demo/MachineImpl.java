@@ -1,8 +1,12 @@
 package com.example.demo;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
+@DiscriminatorValue("MachineImpl")
+@PrimaryKeyJoinColumn(name = "Id")
 public class MachineImpl extends Machine {
 
     private int number;
@@ -10,6 +14,12 @@ public class MachineImpl extends Machine {
 
 
     public MachineImpl() {
+    }
+
+    public MachineImpl(Long id, String engine, int number, String volume) {
+        super(id, engine);
+        this.number = number;
+        this.volume = volume;
     }
 
     public int getNumber() {
