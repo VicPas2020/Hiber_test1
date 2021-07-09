@@ -14,8 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "abstract")
-@Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "Abstract_Type" , discriminatorType = DiscriminatorType.STRING)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 
 public abstract class AbstractEntity {
 
@@ -42,5 +41,13 @@ public abstract class AbstractEntity {
 
     public void setFamily(String family) {
         this.family = family;
+    }
+
+    @Override
+    public String toString() {
+        return "AbstractEntity{" +
+                "id=" + id +
+                ", family='" + family + '\'' +
+                '}';
     }
 }

@@ -1,16 +1,17 @@
 package com.example.demo;
 
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
-@DiscriminatorValue("MachineImpl")
-@PrimaryKeyJoinColumn(name = "MachineId")
+
 public class MachineImpl extends Machine {
 
     private int number;
+
     private String volume;
+
+
+
 
 
     public MachineImpl() {

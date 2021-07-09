@@ -38,10 +38,10 @@ public class DemoApplication {
 
 
 			//repo.delete(repo.getById(10L));
-			Machine volga6 = repo.findByEngine("VOLGA 6");
-			System.out.println(volga6);
+//			Machine volga6 = repo.findByEngine("VOLGA 6");
+//			System.out.println(volga6);
 
-			//simpleService.method();
+			simpleService.method();
 
 
 		};

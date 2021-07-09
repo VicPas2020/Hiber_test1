@@ -1,16 +1,8 @@
 package com.example.demo;
 
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.NamedNativeQuery;
-import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
-@DiscriminatorValue("Machine")
-@PrimaryKeyJoinColumn(name = "AbstractEntityId")
-//@NamedNativeQuery(name = "aa", query = "SELECT name FROM fafafa WHERE id = 7")
-//@AccessType(value = AccessType.Type.FIELD)
-
 public class Machine extends AbstractEntity{
 
 //    @Id
@@ -19,6 +11,9 @@ public class Machine extends AbstractEntity{
 
 
     private String engine;
+
+
+
 
 
     public Long getId() {
