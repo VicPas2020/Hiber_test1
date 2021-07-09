@@ -6,7 +6,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 @DiscriminatorValue("MachineImpl")
-@PrimaryKeyJoinColumn(name = "Id")
+@PrimaryKeyJoinColumn(name = "MachineId")
 public class MachineImpl extends Machine {
 
     private int number;

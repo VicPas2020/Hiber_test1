@@ -30,7 +30,7 @@ public class DemoApplication {
 
 			Machine m = new Machine(11L,"VOLGA " + i);
 			repo.save(m);
-			MachineImpl mi = new MachineImpl(1L, "implMAch " + i, i,  "ddd " + i);
+			MachineImpl mi = new MachineImpl(1L, "engine " + i, i,  "volume " + i);
 			repo.save(mi);
 
 

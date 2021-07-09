@@ -24,7 +24,7 @@ public abstract class AbstractEntity {
     protected Long id;
 
     @Column(name = "fammmile")
-    protected String family;
+    protected String family = "abs_const";
 
 
 

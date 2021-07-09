@@ -7,8 +7,8 @@ import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 @DiscriminatorValue("Machine")
-@PrimaryKeyJoinColumn(name = "name")
-@NamedNativeQuery(name = "aa", query = "SELECT name FROM fafafa WHERE id = 7")
+@PrimaryKeyJoinColumn(name = "AbstractEntityId")
+//@NamedNativeQuery(name = "aa", query = "SELECT name FROM fafafa WHERE id = 7")
 //@AccessType(value = AccessType.Type.FIELD)
 
 public class Machine extends AbstractEntity{
@@ -18,24 +18,16 @@ public class Machine extends AbstractEntity{
 //    private Long id;
 
 
-
-    //@Column(name = "ffdfdfd")
     private String engine;
-
-
 
 
     public Long getId() {
         return super.id;
     }
-    //@AccessType(value = AccessType.Type.PROPERTY)
-
 
     public String getEngine() {
         return engine;
     }
-
-
 
     public void setId(Long id) {
         this.id = id;
@@ -52,6 +44,7 @@ public class Machine extends AbstractEntity{
     public Machine( String engine) {
 
         this.engine = engine;
+
     }
 
     public Machine(Long id, String engine) {
