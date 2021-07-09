@@ -23,7 +23,7 @@ public class SimpleService {
 
 
         List  resultList = em.createNativeQuery("SELECT * FROM Machine").getResultList();
-        System.out.println(resultList); // 6 объектов, расшифровать которые не получилось
+        System.out.println(resultList.get(0)); // 6 объектов, расшифровать которые не получилось
 
 
     }

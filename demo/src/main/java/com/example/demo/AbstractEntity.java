@@ -25,7 +25,12 @@ public abstract class AbstractEntity {
     @Column(name = "fammmile")
     protected String family = "abs_const";
 
+    public AbstractEntity(String family) {
+        this.family = family;
+    }
 
+    public AbstractEntity() {
+    }
 
     public Long getId() {
         return id;

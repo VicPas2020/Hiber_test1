@@ -28,10 +28,21 @@ public class DemoApplication {
 			for (int i = 0; i < 10; i++) {
 
 
-			Machine m = new Machine(11L,"VOLGA " + i);
+			Machine m = new Machine("VOLGA " + i);
 			repo.save(m);
-			MachineImpl mi = new MachineImpl(1L, "engine " + i, i,  "volume " + i);
-			repo.save(mi);
+//			MachineImpl mi = new MachineImpl( "engine " + i, i,  "volume " + i);
+//			repo.save(mi);
+
+
+			}
+
+			for (int i = 0; i < 10; i++) {
+
+
+//				Machine m = new Machine("VOLGA " + i);
+//				repo.save(m);
+				MachineImpl mi = new MachineImpl( "engine " + i, i,  "volume " + i);
+				repo.save(mi);
 
 
 			}

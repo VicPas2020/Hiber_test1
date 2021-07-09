@@ -17,8 +17,8 @@ public class MachineImpl extends Machine {
     public MachineImpl() {
     }
 
-    public MachineImpl(Long id, String engine, int number, String volume) {
-        super(id, engine);
+    public MachineImpl(  String engine, int number, String volume) {
+        super(  engine);
         this.number = number;
         this.volume = volume;
     }
