@@ -14,6 +14,12 @@ public class DemoApplication {
 
 
 
+	@Autowired
+
+	private HusbandRepo husbandRepo;
+
+	@Autowired
+	private WifeRepo wifeRepo;
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
@@ -24,6 +30,24 @@ public class DemoApplication {
 	@Bean
 	public CommandLineRunner cr(   ) {
 		return args -> {
+
+		Husband hs = new Husband();
+		Wife wf = new Wife();
+
+
+		hs.setFirstName("H1");
+		hs.setLastName("H2");
+		hs.setWife(wf);
+
+		wf.setFirstName("W1");
+		wf.setLastName("W2");
+		wf.setHusband(hs);
+
+
+		wifeRepo.save(wf);
+		husbandRepo.save(hs);
+
+
 
 
 

@@ -19,10 +19,44 @@ public class Husband implements Serializable {
     private String firstName;
     private String LastName;
 
+
+
+
     @OneToOne
-    //@JoinColumn(name ="fk_wife") - по умолчанию wife_id
+    @JoinColumn(name ="fk_wife") //- по умолчанию wife_id
     private Wife wife;
 
 
+    public Husband() {
+    }
 
+    public Husband(String firstName, String lastName, Wife wife) {
+        this.firstName = firstName;
+        LastName = lastName;
+        this.wife = wife;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return LastName;
+    }
+
+    public void setLastName(String lastName) {
+        LastName = lastName;
+    }
+
+    public Wife getWife() {
+        return wife;
+    }
+
+    public void setWife(Wife wife) {
+        this.wife = wife;
+    }
 }
