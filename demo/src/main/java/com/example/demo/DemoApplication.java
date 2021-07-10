@@ -53,8 +53,9 @@ public class DemoApplication {
 			Set<Student> set = Set.of(s1,s2,s3);
 
 
+			// FIRST сохраняем базовую сущность One_to_Many
 			univerRepo.save(univer);
-
+			// SECOND сохраняем зависимую сущность Many_to_One
 			studentRepo.saveAll(set);
 
 
