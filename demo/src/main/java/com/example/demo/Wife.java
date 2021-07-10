@@ -1,12 +1,9 @@
 package com.example.demo;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 
@@ -18,24 +15,18 @@ public class Wife {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-     ;
-
 
     private String firstName;
     private String LastName;
 
 
 
-
-    @OneToOne(mappedBy = "wife") // - mappedBy - если нужно чтобы в БАЗЕ этого поля НЕ было.
-    @JoinColumn(name ="husband_id") //- по умолчанию husband_id
+    @OneToOne
+    //@JoinColumn(name ="husband_id") //- по умолчанию husband_id
     @MapsId
     private Husband husband;
 
-
-
-
-
+    
 
 
     public Wife() {
