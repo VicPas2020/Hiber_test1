@@ -7,10 +7,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import java.util.Set;
 
 @Entity
-public class Student {
+public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -19,20 +22,19 @@ public class Student {
     private String lastName;
 
 
-    @ManyToOne (fetch= FetchType.LAZY)  //(cascade = CascadeType.MERGE) - каскад на child это плохо!
-    @JoinColumn(name = "university_id")
-    private University university;
+    @ManyToMany(targetEntity = Shop.class) // (fetch= FetchType.LAZY)  //(cascade = CascadeType.MERGE) - каскад на child это плохо!
+    //@JoinColumn(name = "shop_id")
+    private Set<Shop> shop;
 
-
-    public Student(String firstName, String lastName, University university) {
+    public Customer(String firstName, String lastName, Set<Shop> shop) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.university = university;
+        this.shop = shop;
     }
 
-
-    public Student() {
+    public Customer() {
     }
+
 
     public String getFirstName() {
         return firstName;
@@ -50,11 +52,11 @@ public class Student {
         this.lastName = lastName;
     }
 
-    public University getUniversity() {
-        return university;
+    public Set<Shop> getShop() {
+        return shop;
     }
 
-    public void setUniversity(University university) {
-        this.university = university;
+    public void setShop(Set<Shop> shop) {
+        this.shop = shop;
     }
 }

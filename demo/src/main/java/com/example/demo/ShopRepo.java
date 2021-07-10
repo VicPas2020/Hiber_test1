@@ -2,5 +2,5 @@ package com.example.demo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UniverRepo extends JpaRepository<University, Long> {
+public interface ShopRepo extends JpaRepository<Shop, Long> {
 }

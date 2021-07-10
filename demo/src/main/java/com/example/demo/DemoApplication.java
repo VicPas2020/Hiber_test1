@@ -7,10 +7,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Scanner;
 import java.util.Set;
 
 
@@ -19,17 +15,14 @@ public class DemoApplication {
 
 
 	@Autowired
-	private UniverRepo univerRepo;
+	private ShopRepo shopRepo;
 
 	@Autowired
-	private StudentRepo studentRepo;
-
+	private CustomerRepo customerRepo;
 
 
 	public static void main(String[] args) throws InterruptedException {
 		SpringApplication.run(DemoApplication.class, args);
-
-
 
 
 	}
@@ -38,25 +31,58 @@ public class DemoApplication {
 	public CommandLineRunner cr(   ) {
 		return args -> {
 
-			University univer = new University();
-			Student s1 = new Student("A1", "B1", univer);
-			Student s2 = new Student("A2", "B2", univer);
-			Student s3 = new Student("A3", "B3", univer);
-
-			univer.setName("МГУ");
-			univer.setAddress("Moscow");
-
-			s1.setUniversity(univer);
-			s2.setUniversity(univer);
-			s3.setUniversity(univer);
-
-			Set<Student> set = Set.of(s1,s2,s3);
+			Shop shop1 = new Shop();
+			Shop shop2 = new Shop();
+			Shop shop3 = new Shop();
 
 
-			// FIRST сохраняем базовую сущность One_to_Many
-			univerRepo.save(univer);
-			// SECOND сохраняем зависимую сущность Many_to_One
-			studentRepo.saveAll(set);
+			Customer customer1 = new Customer();
+			Customer customer2 = new Customer();
+			Customer customer3 = new Customer();
+
+
+
+			shop1.setBrand("Mall_1");
+			shop1.setAddress("Moscow");
+			//shop1.setStudents(Set.of(customer1));
+
+			shop2.setBrand("Mall_2");
+			shop2.setAddress("Perm");
+			//shop2.setStudents(Set.of(customer2, customer3));
+
+			shop3.setBrand("Mall_3");
+			shop3.setAddress("Vladivostok");
+			//shop3.setStudents(Set.of(customer3, customer1, customer2));
+
+			customer1.setFirstName("A1");
+			customer1.setLastName("B1");
+			customer1.setShop(Set.of(shop1));
+
+			customer2.setFirstName("A2");
+			customer2.setLastName("B2");
+			customer2.setShop(Set.of(shop1, shop2));
+
+			customer3.setFirstName("A3");
+			customer3.setLastName("B3");
+			customer3.setShop(Set.of(shop1, shop2, shop3));
+
+
+
+			shopRepo.saveAll(Set.of(shop1, shop2, shop3));
+			customerRepo.saveAll(Set.of(customer3, customer1, customer2));
+
+
+
+
+
+
+
+
+//
+//			// FIRST сохраняем базовую сущность One_to_Many
+//			shopRepoRepo.save(shop);
+//			// SECOND сохраняем associated сущность Many_to_One
+//			customerRepo.saveAll(set);
 
 
 		};
