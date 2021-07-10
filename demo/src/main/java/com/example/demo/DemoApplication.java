@@ -21,7 +21,7 @@ public class DemoApplication {
 	private CustomerRepo customerRepo;
 
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args)  {
 		SpringApplication.run(DemoApplication.class, args);
 
 
@@ -44,15 +44,15 @@ public class DemoApplication {
 
 			shop1.setBrand("Mall_1");
 			shop1.setAddress("Moscow");
-			//shop1.setStudents(Set.of(customer1));
+			shop1.setStudents(Set.of(customer1));
 
 			shop2.setBrand("Mall_2");
 			shop2.setAddress("Perm");
-			//shop2.setStudents(Set.of(customer2, customer3));
+			shop2.setStudents(Set.of(customer2, customer3));
 
 			shop3.setBrand("Mall_3");
 			shop3.setAddress("Vladivostok");
-			//shop3.setStudents(Set.of(customer3, customer1, customer2));
+			shop3.setStudents(Set.of(customer3, customer1, customer2));
 
 			customer1.setFirstName("A1");
 			customer1.setLastName("B1");
