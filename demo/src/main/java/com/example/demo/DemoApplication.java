@@ -1,6 +1,7 @@
 package com.example.demo;
 
 
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -44,15 +45,15 @@ public class DemoApplication {
 
 			shop1.setBrand("Mall_1");
 			shop1.setAddress("Moscow");
-			shop1.setStudents(Set.of(customer1));
+			shop1.setCustomers(Set.of(customer1));
 
 			shop2.setBrand("Mall_2");
 			shop2.setAddress("Perm");
-			shop2.setStudents(Set.of(customer2, customer3));
+			shop2.setCustomers(Set.of(customer2, customer3));
 
 			shop3.setBrand("Mall_3");
 			shop3.setAddress("Vladivostok");
-			shop3.setStudents(Set.of(customer3, customer1, customer2));
+			shop3.setCustomers(Set.of(customer1,  customer2, customer3));
 
 			customer1.setFirstName("A1");
 			customer1.setLastName("B1");
@@ -60,7 +61,7 @@ public class DemoApplication {
 
 			customer2.setFirstName("A2");
 			customer2.setLastName("B2");
-			customer2.setShop(Set.of(shop1, shop2));
+			customer2.setShop(Set.of(shop2, shop3));
 
 			customer3.setFirstName("A3");
 			customer3.setLastName("B3");
@@ -71,19 +72,13 @@ public class DemoApplication {
 			shopRepo.saveAll(Set.of(shop1, shop2, shop3));
 			customerRepo.saveAll(Set.of(customer3, customer1, customer2));
 
-
-
-
-
-
-
-
 //
-//			// FIRST сохраняем базовую сущность One_to_Many
-//			shopRepoRepo.save(shop);
-//			// SECOND сохраняем associated сущность Many_to_One
-//			customerRepo.saveAll(set);
+			Shop mall_2 = shopRepo.findShopByBrand("Mall_2");
+			System.out.println(mall_2.getCustomers());
 
+			//Hibernate.initialize(customer2);
+			Customer customer = customerRepo.findCustomerByFirstName("A2");
+			System.out.println(customer.getShop());
 
 		};
 

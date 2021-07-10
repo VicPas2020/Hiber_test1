@@ -1,9 +1,11 @@
 package com.example.demo;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import java.util.Set;
 
@@ -17,8 +19,8 @@ public class Customer {
     private String lastName;
 
 
-    @ManyToMany(mappedBy = "customers", targetEntity = Shop.class) // (fetch= FetchType.LAZY)  //(cascade = CascadeType.MERGE) - каскад на child это плохо!
-    //@JoinColumn(name = "shop_id")
+    @ManyToMany(/*mappedBy = "customers", */targetEntity = Shop.class, fetch= FetchType.EAGER) // (fetch= FetchType.LAZY)  //(cascade = CascadeType.MERGE) - каскад на child это плохо!
+    @JoinColumn(name = "customers")
     private Set<Shop> shop;
 
     public Customer(String firstName, String lastName, Set<Shop> shop) {
@@ -53,5 +55,15 @@ public class Customer {
 
     public void setShop(Set<Shop> shop) {
         this.shop = shop;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+
+                '}';
     }
 }

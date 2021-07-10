@@ -2,11 +2,11 @@ package com.example.demo;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import java.util.Set;
 
@@ -23,31 +23,24 @@ public class Shop {
     private String address;
 
 
-    @ManyToMany(targetEntity = Customer.class, cascade = CascadeType.PERSIST)
-    @JoinTable(
-            name="shop_customer",
-            joinColumns=@JoinColumn(name="shop_ID", referencedColumnName="ID"),
-            inverseJoinColumns=@JoinColumn(name="customer_ID", referencedColumnName="ID"))
-
+    @ManyToMany(targetEntity = Customer.class, cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+//    @JoinTable(
+//            name="shop_customer",
+//            joinColumns=@JoinColumn(name="shop_ID", referencedColumnName="ID"),
+//            inverseJoinColumns=@JoinColumn(name="customer_ID", referencedColumnName="ID"))
+        @JoinColumn(name = "shop")
     private Set<Customer> customers;
 
     public Shop() {
 
     }
 
-
-    public Shop(String brand, String address, Set<Customer> customers) {
-        this.brand = brand;
-        this.address = address;
-        this.customers = customers;
-    }
-
     public String getBrand() {
         return brand;
     }
 
-    public void setBrand(String name) {
-        this.brand = name;
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
     public String getAddress() {
@@ -58,11 +51,21 @@ public class Shop {
         this.address = address;
     }
 
-    public Set<Customer> getStudents() {
+    public Set<Customer> getCustomers() {
         return customers;
     }
 
-    public void setStudents(Set<Customer> customers) {
+    public void setCustomers(Set<Customer> customers) {
         this.customers = customers;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Shop{" +
+                "brand='" + brand + '\'' +
+                ", address='" + address + '\'' +
+
+                '}';
     }
 }
