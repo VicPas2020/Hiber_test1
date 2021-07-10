@@ -62,17 +62,12 @@ public class DemoApplication {
 //				phoneRepo.save(p);
 //
 //			}
-
-
-			phoneRepo.saveAll(list);
-
-
 			ps.setPhones(list);
 
-
-
-
+			// FIRST сохраняем базовую сущность One_to_Many
 			personRepo.save(ps);
+			// SECOND сохраняем зависимую сущность Many_to_One
+			phoneRepo.saveAll(list);
 
 		};
 

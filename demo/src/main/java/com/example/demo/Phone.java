@@ -24,8 +24,8 @@ public class Phone {
 
 
 
-    @ManyToOne/*(fetch = FetchType.LAZY, targetEntity = Person.class)*/  // дефолт fetch = FetchType.EAREG
-    (cascade = CascadeType.PERSIST ) // CascadeType.ALL is good too
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Person.class)
+    //(cascade = CascadeType.PERSIST ) // CascadeType.ALL is good too
     @JoinColumn(name ="fk_person")  //если нужно переименовать колонку c маппингом.
     private Person person;
 
