@@ -16,11 +16,11 @@ import java.util.Scanner;
 public class DemoApplication {
 
 
-	@Autowired
-	PersonRepo personRepo;
+//	@Autowired
+//
+//
+//	@Autowired
 
-	@Autowired
-	PhoneRepo phoneRepo;
 
 
 	public static void main(String[] args) throws InterruptedException {
@@ -36,43 +36,6 @@ public class DemoApplication {
 	public CommandLineRunner cr(   ) {
 		return args -> {
 
-			List<Phone> list = new ArrayList<>();
-
-			Person ps = new Person("AA", "BB", list);
-
-			Phone phone1 = new Phone(123456, ps);
-			Phone phone2 = new Phone(345677, ps);
-			Phone phone3 = new Phone(987654, ps);
-			Phone phone4 = new Phone(510101, ps);
-
-
-
-//			Phone phone1 = new Phone(123456);
-//			Phone phone2 = new Phone(345677);
-//			Phone phone3 = new Phone(987654);
-//			Phone phone4 = new Phone(510101);
-
-//			List<Phone> list = List.of(phone1, phone2, phone3);
-			list.add(phone1);
-			list.add(phone2);
-			list.add(phone3);
-			list.add(phone4);
-
-//			for (Phone p : list) {
-//				phoneRepo.save(p);
-//
-//			}
-
-
-			phoneRepo.saveAll(list);
-
-
-			ps.setPhones(list);
-
-
-
-
-			personRepo.save(ps);
 
 		};
 
